@@ -8,6 +8,7 @@ public class Nodo {
     protected LinkedList<Nodo> hijos;
     int nivel;
 
+
     public Nodo(){
         ronda = new Ronda();
         hijos = new LinkedList<>();
