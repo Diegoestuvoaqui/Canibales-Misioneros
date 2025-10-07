@@ -74,8 +74,8 @@ public class Algorimos {
         return Arrays.toString(r.getIzquierda()) + "|" + Arrays.toString(r.getDerecha());
     }
 
-    public float heuristica(Nodo nodo) {
-        return 6-nodo.getInfo().distancia()+nodo.getInfo().riego();
+    public static int heuristica(Nodo nodo) {
+        return  6-nodo.getInfo().distancia()+nodo.getInfo().riego();
     }
 
     

@@ -1,5 +1,6 @@
 package launch;
 
+import algorithm.informada.BusquedaVoraz;
 import algorithm.noInformada.BusquedaProfunda;
 import algorithm.noInformada.BusquedaAncho;
 import base.Nodo;
@@ -17,6 +18,7 @@ public class MenuBusqueda {
             System.out.println("\n===== MENÚ DE BÚSQUEDA =====");
             System.out.println("1. Búsqueda en Anchura (BFS)");//Breadth-first search
             System.out.println("2. Búsqueda en Profundidad (DFS)");//Depth-First Search
+            System.out.println("3. Búsqueda Voraz");//Greedy Best-First Search
             System.out.println("15. Salir");
             System.out.print("Seleccione una opción: ");
 
@@ -25,6 +27,7 @@ public class MenuBusqueda {
             switch (opcion) {
                 case 1 -> ejecutarBusquedaAncho();
                 case 2 -> ejecutarBusquedaProfunda();
+                case 3 -> ejecutarBusquedaVoraz();
 
                 case 15 -> System.out.println("Saliendo del programa...");
                 default -> System.out.println("Opción inválida. Intente de nuevo.");
@@ -46,7 +49,6 @@ public class MenuBusqueda {
 
         System.out.println("Tiempo total: " + (fin - inicio) + " ms");
     }
-
     private static void ejecutarBusquedaProfunda() {
         System.out.println("\nEjecutando Búsqueda en Profundidad (DFS)...");
 
@@ -56,6 +58,18 @@ public class MenuBusqueda {
 
         long inicio = System.currentTimeMillis();
         dfs.BusquedaProfunda(raiz2);
+        long fin = System.currentTimeMillis();
+
+        System.out.println("Tiempo total: " + (fin - inicio) + " ms");
+    }
+    private static void ejecutarBusquedaVoraz() {
+        System.out.println("\nEjecutando Búsqueda Voraz (GBFS)...");
+
+        Nodo raiz = new Nodo();
+        BusquedaVoraz gbfs = new BusquedaVoraz();
+
+        long inicio = System.currentTimeMillis();
+        gbfs.busquedaVoraz(raiz);
         long fin = System.currentTimeMillis();
 
         System.out.println("Tiempo total: " + (fin - inicio) + " ms");
